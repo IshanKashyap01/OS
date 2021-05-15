@@ -11,7 +11,7 @@ void swap(int *a,int *b)
 		
 struct bestFit
 {
-	int blocksize[10], processsize[10],processId[10], blockno,blockId[10], processno, flags[10], allocation[10], i, j;	
+	int bsize[10], processsize[10],processId[10], blockno,blockId[10], processno, flags[10], allocation[10], i, j;	
 	public:
 		void sorting()
 		{	
@@ -20,11 +20,11 @@ struct bestFit
 			{
 				int min=i;
 				for(j=i+1;j<n;j++)
-					if(blocksize[j]<blocksize[min])
+					if(bsize[j]<bsize[min])
 					{
 						min=j;
 					}
-				swap(&blocksize[min],&blocksize[i]);
+				swap(&bsize[min],&bsize[i]);
 				swap(&blockId[min],&blockId[i]);				
 			}
 			
@@ -56,7 +56,7 @@ struct bestFit
 			
 			for(i = 0; i<blockno; i++)
 			{			
-				cin>>blocksize[i];
+				cin>>bsize[i];
 				blockId[i]=i;
 			}
 			
@@ -78,7 +78,7 @@ struct bestFit
 			{
 				for(j = 0; j<blockno; j++)
 				{
-					if(flags[j] == 0 && blocksize[j]> processsize[i])
+					if(flags[j] == 0 && bsize[j]> processsize[i])
 					{
 						allocation[j] = i;
 						flags[j] = 1;
@@ -95,7 +95,7 @@ struct bestFit
 			for(i=0; i<blockno; i++)
 			{
 
-				cout<<"\n"<<blockId[i]<<"\t\t"<<blocksize[i]<<"\t\t";
+				cout<<"\n"<<blockId[i]<<"\t\t"<<bsize[i]<<"\t\t";
 
 				if(flags[i] == 1)
 
